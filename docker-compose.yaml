@@ -1,0 +1,15 @@
+services:
+    php:
+        build:
+            context: .
+            target: app
+            args:
+                APP_NAME: 'demo-example-app'
+                TIMEZONE: 'Europe/Amsterdam'
+                OPCACHE_VALIDATE_TIMESTAMPS: 1
+                NEW_RELIC_ENABLED: 0
+                NRIA_LICENSE_KEY: 'random-license-key'
+        working_dir: /app
+        volumes:
+            - ./logs:/usr/local/var/log
+            - .:/app
